@@ -8,7 +8,14 @@
     <title>Main page</title>
 </head>
 <body>
-{{some}}
+<div>Список сообщений</div>
+{{#messages}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{text}}</span>
+        <i>{{tag}}</i>
+    </div>
+{{/messages}}
 
 <p><a href="/greeting">Get greeting</a></p>
 </body>
