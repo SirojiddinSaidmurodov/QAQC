@@ -8,6 +8,17 @@
     <title>Main page</title>
 </head>
 <body>
+<div>
+    <form method="post">
+        <label title="text">
+            <input type="text" name="text" placeholder="Type message">
+        </label>
+        <label>
+            <input type="text" name="tag" placeholder="Tag">
+        </label>
+        <button type="submit">Send</button>
+    </form>
+</div>
 <div>Список сообщений</div>
 {{#messages}}
     <div>
