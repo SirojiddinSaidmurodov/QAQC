@@ -9,7 +9,14 @@
 </head>
 <body>
 <div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
     <form method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
         <label title="text">
             <input type="text" name="text" placeholder="Type message">
         </label>
@@ -22,6 +29,7 @@
 
 <div>
     <form method="get" action="filter">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
         <label>
             <input type="text" name="filter">
         </label>
@@ -37,6 +45,6 @@
     </div>
 {{/messages}}
 
-<p><a href="/greeting">Get greeting</a></p>
+<p><a href="/">Get greeting</a></p>
 </body>
 </html>

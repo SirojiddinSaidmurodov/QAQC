@@ -21,11 +21,6 @@ public class Message {
         this.tag = tag;
     }
 
-    public Message(Integer id, String text, String tag) {
-        this.id = id;
-        this.text = text;
-        this.tag = tag;
-    }
 
     public Integer getId() {
         return id;
