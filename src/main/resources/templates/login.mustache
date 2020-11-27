@@ -6,12 +6,12 @@
 <body>
 
 <form action="/login" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <input type="submit" value="Sign in"/>
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <div><label><input type="text" name="username" placeholder="Логин"/> </label></div>
+    <div><label><input type="password" name="password" placeholder="Пароль"/> </label></div>
+    <input type="submit" value="Войти"/>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
 </form>
 
-<div><a href="/signup">Sign up for free!</a></div>
+<div><a href="/signup">Регистрация</a></div>
 </body>
 </html>

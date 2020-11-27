@@ -4,20 +4,19 @@
     <title>Spring Security Example </title>
 </head>
 <body>
-Sign up!
-
+Регистрация
 <p style="color: red">
     {{#message}}
         {{message}}
     {{/message}}
 </p>
 <form action="/signup" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign up"/></div>
+    <div><label><input type="text" name="username" placeholder="Логин"/> </label></div>
+    <div><label><input type="password" name="password" placeholder="Пароль"/> </label></div>
+    <div><input type="submit" value="Зарегистрироваться"/></div>
     <input type="hidden" name="_csrf" value="{{_csrf.token}}">
 
-    <div><a href="/login">I already have an account</a></div>
+    <div><a href="/login">У меня есть уже есть учетная запись</a></div>
 </form>
 </body>
 </html>
