@@ -81,7 +81,6 @@ class TestCodeApplicationTests {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
 
     @Test
