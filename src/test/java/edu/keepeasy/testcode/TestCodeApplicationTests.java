@@ -5,7 +5,6 @@ import edu.keepeasy.testcode.domain.User;
 import edu.keepeasy.testcode.repo.MessageRepository;
 import edu.keepeasy.testcode.repo.UserRepository;
 import edu.keepeasy.testcode.service.Checker;
-import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -86,17 +85,17 @@ class TestCodeApplicationTests {
     @Test
     @Order(1)
     public void validateLogin() {
-        Assert.assertTrue(Checker.isUsernameValid("login"));
-        Assert.assertFalse(Checker.isUsernameValid(""));
-        Assert.assertFalse(Checker.isUsernameValid("gotta feeling"));
+        Assertions.assertTrue(Checker.isUsernameValid("login"));
+        Assertions.assertFalse(Checker.isUsernameValid(""));
+        Assertions.assertFalse(Checker.isUsernameValid("gotta feeling"));
     }
 
     @Test
     @Order(2)
     public void validatePassword() {
-        Assert.assertTrue(Checker.isPasswordValid("jcgfhgvjhbk8645311"));
-        Assert.assertFalse(Checker.isPasswordValid("123456"));
-        Assert.assertFalse(Checker.isPasswordValid("hello world"));
+        Assertions.assertTrue(Checker.isPasswordValid("jcgfhgvjhbk8645311"));
+        Assertions.assertFalse(Checker.isPasswordValid("123456"));
+        Assertions.assertFalse(Checker.isPasswordValid("hello world"));
     }
 
     @Test
@@ -104,7 +103,7 @@ class TestCodeApplicationTests {
     public void checkConnection() {
         try {
             Connection connection = dataSource.getConnection();
-            Assert.assertEquals("springtest", connection.getCatalog());
+            Assertions.assertEquals("springtest", connection.getCatalog());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -116,9 +115,9 @@ class TestCodeApplicationTests {
         messageRepository.save(new Message("Кратко о том, зачем этот зверь нам нужен?",
                 "QA/QC"));
         List<Message> byTag = messageRepository.findByTag("QA/QC");
-        Assert.assertNotEquals(0, byTag.size());
+        Assertions.assertNotEquals(0, byTag.size());
         for (Message message : byTag) {
-            Assert.assertEquals("Кратко о том, зачем этот зверь нам нужен?",
+            Assertions.assertEquals("Кратко о том, зачем этот зверь нам нужен?",
                     message.getText());
         }
     }
@@ -127,12 +126,10 @@ class TestCodeApplicationTests {
     @Order(5)
     public void isUserInDB() {
         User sirojiddin = userRepository.findByUsername("sirojiddin");
-        Assert.assertNotNull(sirojiddin);
-        Assert.assertEquals("qwerty123456", sirojiddin.getPassword());
+        Assertions.assertNotNull(sirojiddin);
+        Assertions.assertEquals("qwerty123456", sirojiddin.getPassword());
 
         User notExists = userRepository.findByUsername("qwertyuiop");
-        Assert.assertNull(notExists);
+        Assertions.assertNull(notExists);
     }
-
-
 }

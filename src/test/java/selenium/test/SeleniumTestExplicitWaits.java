@@ -1,6 +1,5 @@
 package selenium.test;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,8 +28,9 @@ public class SeleniumTestExplicitWaits {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
+
     @AfterAll
-    public static void close(){
+    public static void close() {
         driver.quit();
     }
 
@@ -38,7 +38,7 @@ public class SeleniumTestExplicitWaits {
     @Order(1)
     public void signupTest() {
         driver.get(properties.getProperty("signUpPage"));
-        Assert.assertEquals("Sign Up", driver.getTitle());
+        Assertions.assertEquals("Sign Up", driver.getTitle());
         WebElement username = new WebDriverWait(driver, 3)
                 .until(driver -> driver.findElement(By.cssSelector("#username")));
         WebElement password = new WebDriverWait(driver, 3)
@@ -48,14 +48,14 @@ public class SeleniumTestExplicitWaits {
         username.sendKeys("sirojiddin");
         password.sendKeys("mySecretPassword");
         submitButton.click();
-        Assert.assertEquals("Login", driver.getTitle());
+        Assertions.assertEquals("Login", driver.getTitle());
     }
 
     @Test
     @Order(2)
     public void loginTest() {
         driver.get(properties.getProperty("logInPage"));
-        Assert.assertEquals("Login", driver.getTitle());
+        Assertions.assertEquals("Login", driver.getTitle());
         WebElement username = new WebDriverWait(driver, 3)
                 .until(driver -> driver.findElement(By.xpath("//input[@name='username']")));
         WebElement password = new WebDriverWait(driver, 3)
@@ -65,7 +65,6 @@ public class SeleniumTestExplicitWaits {
         username.sendKeys("sirojiddin");
         password.sendKeys("mySecretPassword");
         submitButton.click();
-        Assert.assertEquals("Greeting", driver.getTitle());
+        Assertions.assertEquals("Greeting", driver.getTitle());
     }
-
 }
