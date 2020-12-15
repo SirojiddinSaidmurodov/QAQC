@@ -1,9 +1,9 @@
-package selenium.test;
+package selenium.pageObjectTest;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import selenium.test.pageobject.LoginPage;
-import selenium.test.pageobject.SignUpPage;
+import selenium.pageObjectTest.pageobject.LoginPage;
+import selenium.pageObjectTest.pageobject.SignUpPage;
 
 import java.util.Properties;
 

@@ -1,18 +1,18 @@
-package selenium.test;
+package selenium;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class SeleniumTestImplicitWaits {
+public class SeleniumTestExplicitWaits {
     public static WebDriver driver;
     public static Properties properties;
 
@@ -27,8 +27,6 @@ public class SeleniumTestImplicitWaits {
         System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     @AfterAll
@@ -41,10 +39,13 @@ public class SeleniumTestImplicitWaits {
     public void signupTest() {
         driver.get(properties.getProperty("signUpPage"));
         Assertions.assertEquals("Sign Up", driver.getTitle());
-        WebElement username = driver.findElement(By.cssSelector("#username"));
-        WebElement password = driver.findElement(By.cssSelector("#password"));
-        WebElement submitButton = driver.findElement(By.cssSelector("input[name=submitSignUp]"));
-        username.sendKeys("sirojiddin2");
+        WebElement username = new WebDriverWait(driver, 3)
+                .until(driver -> driver.findElement(By.cssSelector("#username")));
+        WebElement password = new WebDriverWait(driver, 3)
+                .until(driver -> driver.findElement(By.cssSelector("#password")));
+        WebElement submitButton = new WebDriverWait(driver, 3)
+                .until(driver -> driver.findElement(By.cssSelector("input[name=submitSignUp]")));
+        username.sendKeys("sirojiddin");
         password.sendKeys("mySecretPassword");
         submitButton.click();
         Assertions.assertEquals("Login", driver.getTitle());
@@ -55,10 +56,13 @@ public class SeleniumTestImplicitWaits {
     public void loginTest() {
         driver.get(properties.getProperty("logInPage"));
         Assertions.assertEquals("Login", driver.getTitle());
-        WebElement username = driver.findElement(By.xpath("//input[@name='username']"));
-        WebElement password = driver.findElement(By.xpath("html/body/div/div/form/div[2]/label/input"));
-        WebElement submitButton = driver.findElement(By.xpath("//input[@type='submit']"));
-        username.sendKeys("sirojiddin2");
+        WebElement username = new WebDriverWait(driver, 3)
+                .until(driver -> driver.findElement(By.xpath("//input[@name='username']")));
+        WebElement password = new WebDriverWait(driver, 3)
+                .until(driver -> driver.findElement(By.xpath("html/body/div/div/form/div[2]/label/input")));
+        WebElement submitButton = new WebDriverWait(driver, 3)
+                .until(driver -> driver.findElement(By.xpath("//input[@type='submit']")));
+        username.sendKeys("sirojiddin");
         password.sendKeys("mySecretPassword");
         submitButton.click();
         Assertions.assertEquals("Greeting", driver.getTitle());

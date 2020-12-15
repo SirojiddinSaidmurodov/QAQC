@@ -1,4 +1,4 @@
-package selenium.test;
+package selenium.pageObjectTest;
 
 import java.io.FileReader;
 import java.io.IOException;

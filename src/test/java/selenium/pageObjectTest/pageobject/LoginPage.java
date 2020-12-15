@@ -1,4 +1,4 @@
-package selenium.test.pageobject;
+package selenium.pageObjectTest.pageobject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

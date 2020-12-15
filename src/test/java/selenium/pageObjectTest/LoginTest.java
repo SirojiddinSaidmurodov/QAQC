@@ -1,9 +1,9 @@
-package selenium.test;
+package selenium.pageObjectTest;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import selenium.test.pageobject.LoginPage;
-import selenium.test.pageobject.MainPage;
+import selenium.pageObjectTest.pageobject.LoginPage;
+import selenium.pageObjectTest.pageobject.MainPage;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
