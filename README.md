@@ -1,6 +1,6 @@
 # QA/QC
 
-Sign in / Sign up web-forms with login and password validation + JUnit and Selenium tests
+Sign in / Sign up web-forms with a login and password validation + JUnit and Selenium tests
 
 # Content
 
@@ -11,6 +11,13 @@ Sign in / Sign up web-forms with login and password validation + JUnit and Selen
 - [Cucumber + Selenide](#cucumber--selenide-test)
 
 ## Web App
+
+![img](img/login.png)
+
+Making a web application with log in, sign up pages, and some database manipulating page. Additionally, made a login and
+password validation on sign up. Server has a custom error handlers (for 404, 400, 500 errors).
+
+❗ Note: server runs on 8888 port specified in [properties](src/main/resources/application.properties)
 
 [SourceCode](src/main/java/edu/keepeasy/testcode)
 
@@ -24,8 +31,12 @@ Sign in / Sign up web-forms with login and password validation + JUnit and Selen
 - Accessing data with MySQL [guide](https://spring.io/guides/gs/accessing-data-mysql/)
 - Securing a Web Application [guide](https://spring.io/guides/gs/securing-web/)
 - [Documentation](http://mustache.github.io/mustache.5.html) of Mustache
+- [Guide](https://www.baeldung.com/spring-boot-custom-error-page) for making custom error pages on Spring Boot
 
 ## JUnit 5 tests
+
+Test application as a [white box](https://en.wikipedia.org/wiki/White-box_testing), we know internal structure and
+working of application.
 
 [SourceCode](src/test/java/edu/keepeasy/testcode)
 
@@ -34,6 +45,9 @@ Sign in / Sign up web-forms with login and password validation + JUnit and Selen
 - [Documentation](https://junit.org/junit5/docs/current/user-guide/) of JUnit 5
 
 ## Selenium tests
+
+Functional testing of application, that means we don't know anything about internal structure of software we are
+testing, also known as [Black box](https://en.wikipedia.org/wiki/Black_box)
 
 [SourceCode](src/test/java/selenium)
 
