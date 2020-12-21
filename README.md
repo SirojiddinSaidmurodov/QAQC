@@ -65,6 +65,7 @@ testing, also known as [Black box](https://en.wikipedia.org/wiki/Black_box)
 
 ## Cucumber + Selenide test
 
+❗ You may need Cucumber plugin for your IDE to be able to run tests
 [SourceCode](src/test/java/cucumber/test)
 
 ### References
@@ -73,3 +74,4 @@ testing, also known as [Black box](https://en.wikipedia.org/wiki/Black_box)
     - Cucumber [installation](https://cucumber.io/docs/installation/java/)
 - Selenide [docs](https://ru.selenide.org/documentation.html)
 - [Gherkin](https://cucumber.io/docs/gherkin/reference/) syntax
+- IntelliJ IDEA [plugin](https://plugins.jetbrains.com/plugin/7212-cucumber-for-java)
